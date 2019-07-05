@@ -47,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
             ib.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Bitmap bm=((BitmapDrawable)ib.getDrawable()).getBitmap();
-                    ib.setImageBitmap(getBitmap(iv));
-                    iv.setImageBitmap(bm);
+                    if(iv.getVisibility()==View.VISIBLE) {
+                        Bitmap bm = ((BitmapDrawable) ib.getDrawable()).getBitmap();
+                        ib.setImageBitmap(getBitmap(iv));
+                        iv.setImageBitmap(bm);
+                    }
                 }
             });
         }

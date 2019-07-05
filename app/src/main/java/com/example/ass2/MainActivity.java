@@ -2,6 +2,8 @@ package com.example.ass2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -45,13 +47,23 @@ public class MainActivity extends AppCompatActivity {
             ib.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(MainActivity.this, "Image Button Clicked", Toast.LENGTH_SHORT).show();
+                    Bitmap bm=((BitmapDrawable)ib.getDrawable()).getBitmap();
+                    ib.setImageBitmap(getBitmap(iv));
+                    iv.setImageBitmap(bm);
                 }
             });
         }
         if(rb1.isChecked()) {
             ib.setOnClickListener(null);
         }
+    }
+
+    public Bitmap getBitmap(ImageView i) {
+
+        Bitmap bm=((BitmapDrawable)i.getDrawable()).getBitmap();
+
+        return bm;
+
     }
 
 }
